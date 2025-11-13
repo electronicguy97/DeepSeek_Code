@@ -1,0 +1,30 @@
+name: deepseek_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - jupyter
+  - ipywidgets
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pip:
+      - transformers
+      - datasets
+      - peft
+      - accelerate
+      - bitsandbytes
+      - sentence-transformers
+      - langchain
+      - chromadb
+      - faiss-cpu
+      - llama-index
+      - gradio
+      - tqdm
+      - pyyaml

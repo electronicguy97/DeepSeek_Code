@@ -1,0 +1,13 @@
+torch
+transformers
+datasets
+accelerate
+bitsandbytes
+sentence-transformers
+langchain
+chromadb
+faiss-cpu
+llama-index
+gradio
+tqdm
+pyyaml
