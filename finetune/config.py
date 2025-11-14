@@ -2,22 +2,24 @@
 import os
 import torch
 
-# ----- 기본 환경 설정 -----
+# 환경 변수 설정
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
+# 디바이스
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# ----- 모델 및 데이터 경로 -----
+# 모델/데이터 경로 및 이름
 BASE_MODEL = "./DeepSeek-R1-Distill-Llama-8B"
 DATASET_NAME = "code_search_net"
-DATASET_LANG = "python"
+DATASET_CONFIG = "python"   # 예: "python", "java" 등
 
-# ----- 학습 관련 설정 -----
-BATCH_SIZE = 4
-LR = 2e-4
-EPOCHS = 3
+# 학습 하이퍼파라미터
+BATCH_SIZE = 8
+LR = 5e-5
+NUM_EPOCHS = 3
 SEED = 42
 
-# ----- LoRA 설정값 (딕셔너리 형태로 전달용) -----
+# LoRA 설정값
 LORA_PARAMS = {
     "r": 4,
     "lora_alpha": 16,
@@ -27,7 +29,7 @@ LORA_PARAMS = {
     "task_type": "CAUSAL_LM",
 }
 
-# ----- 4bit 양자화 설정값 -----
+# 양자화 설정값 (Bits & Bytes 4-bit)
 BNB_PARAMS = {
     "load_in_4bit": True,
     "bnb_4bit_quant_type": "nf4",
