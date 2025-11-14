@@ -23,3 +23,8 @@ def log_config(config_module):
         if attr.isupper():
             print(f"{attr} = {getattr(config_module, attr)}")
     print("=====================")
+
+def print_line(msg):
+    print("=" * 50)
+    print(msg)
+    print("=" * 50)
