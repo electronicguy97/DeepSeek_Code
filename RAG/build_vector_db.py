@@ -12,13 +12,12 @@ with open("docs.json", "r", encoding="utf-8") as f:
 texts = [d["text"] for d in docs]
 
 # 임베딩
-embs = embedder.encode(texts, show_progress_bar=True)
+embs = embedder.encode(texts, show_progress_bar=True, normalize_embeddings=True) # 정규화 추가
 dim = embs.shape[1]
 
 # FAISS index
-index = faiss.IndexFlatL2(dim)
-print(index)
-index.add(embs)
+index = faiss.IndexFlatIP(dim) # L2 → Inner Product로 변경
+index.add(embs.astype('float32'))
 
 # 저장
 faiss.write_index(index, "vector.index")

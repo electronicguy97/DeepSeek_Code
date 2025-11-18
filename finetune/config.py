@@ -27,7 +27,7 @@ LORA_PARAMS = {
     "lora_dropout": 0.1,
     "bias": "none",
     "task_type": "CAUSAL_LM",
-    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj","gate_proj", "up_proj", "down_proj"]
+    "target_modules": ["q_proj", "k_proj"]#, "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
 }
 
 # 4-bit 양자화 (QLoRA)
@@ -44,7 +44,6 @@ TRAINING_ARGS = {
     "per_device_train_batch_size": 1,
     "per_device_eval_batch_size": 1,
     "gradient_accumulation_steps": 2,
-    "num_train_epochs": 1,
     "save_strategy": "epoch",
     "evaluation_strategy": "epoch",
     "logging_dir": "./logs",

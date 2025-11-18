@@ -37,11 +37,11 @@ def load_data():
         # labels 추가 (input_ids 복사)
         tokenized["labels"] = tokenized["input_ids"].copy()
         # → torch.tensor() 사용 금지 (map 내부에서는 리스트만 허용)
-        # tokenized["labels"] = torch.tensor(tokenized["input_ids"])  # ✅ `torch.tensor()` 사용
+        # tokenized["labels"] = torch.tensor(tokenized["input_ids"])  # torch.tensor() 사용
 
         return tokenized
 
-    # 4) 데이터셋 변환
+    # 데이터셋 변환
     tokenized_dataset = dataset.map(
         tokenize_function,
         batched=True,
