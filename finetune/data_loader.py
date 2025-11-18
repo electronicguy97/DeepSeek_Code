@@ -17,7 +17,6 @@ def load_data():
 
     # 토크나이징 함수
     def tokenize_function(examples):
-        # 함수 설명 + 코드 결합
         combined_texts = [
             f"{doc}\n\n{code}" 
             for doc, code in zip(
@@ -36,7 +35,7 @@ def load_data():
 
         # labels 추가 (input_ids 복사)
         tokenized["labels"] = tokenized["input_ids"].copy()
-        # → torch.tensor() 사용 금지 (map 내부에서는 리스트만 허용)
+        # torch.tensor() 사용 금지 (map 내부에서는 리스트만 허용)
         # tokenized["labels"] = torch.tensor(tokenized["input_ids"])  # torch.tensor() 사용
 
         return tokenized
