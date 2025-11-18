@@ -9,7 +9,6 @@ def create_trainer(model, tokenizer, dataset):
 
     trainer = SFTTrainer(
         model=model,
-        tokenizer=tokenizer,
         args=training_args,
         train_dataset=dataset["train"],
         eval_dataset=dataset["validation"]
